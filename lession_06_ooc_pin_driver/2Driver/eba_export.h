@@ -55,7 +55,7 @@ void run(void);
       .level = _level,                                                         \
       .exit = false,                                                           \
       .magic_head = EXPORT_ID_INIT,                                            \
-      .magic_tail = EXPORT_ID_POLL,                                            \
+      .magic_tail = EXPORT_ID_INIT,                                            \
   }
 
 #define EXIT_EXPORT(_func, _level)                                             \
@@ -78,7 +78,7 @@ void run(void);
       .data = (void *)&poll_##_func##_data,                                    \
       .level = EXPORT_POLL,                                                    \
       .period_ms = (uint32_t)(_period_ms),                                     \
-      .magic_head = EXPORT_ID_INIT,                                            \
+      .magic_head = EXPORT_ID_POLL,                                            \
       .magic_tail = EXPORT_ID_POLL,                                            \
   };
 #endif

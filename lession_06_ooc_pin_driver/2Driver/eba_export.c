@@ -135,8 +135,8 @@ static void _poll_func_execute(void) {
       uint32_t _time = elab_time_ms();
       if (((_time >= data->timeout_ms) &&
            (_time - data->timeout_ms < POLL_PERIOD_MAX)) ||
-          (((_time < data->timeout_ms) &&
-            (data->timeout_ms - _time > POLL_PERIOD_MAX)))) {
+          ((_time < data->timeout_ms) &&
+           (data->timeout_ms - _time > POLL_PERIOD_MAX))) {
         data->timeout_ms += export_poll_table[i].period_ms;
         ((void (*)(void))export_poll_table[i].func)();
       } else {
@@ -146,8 +146,5 @@ static void _poll_func_execute(void) {
   }
 }
 
-
 /* null function to mark the section of exporting */
-static void module_null_init(void){
-
-}
+static void module_null_init(void) {}

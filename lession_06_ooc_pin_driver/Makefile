@@ -36,7 +36,7 @@ BIN_FILES 	:= $(shell find . -name "*.bin")
 # Define the flags in compiling and linking
 ifeq ($(DEBUG), true)
 FLAGS	 	+= -g -gdwarf-2 #enable debugging function , default debugging form  is dwarf-5 in .o files
-FLAGS	 	+=  -fverbose-asm #-save-temps  # generate debugging files 
+FLAGS	 	+=  -fverbose-asm -save-temps # generate debugging files 
 LIBS        += --specs=rdimon.specs -u _printf_float -lm -lc -lrdimon # Use Semihosting Debug When Compiling with GCC
 																# and enable floating point support in printf. 
 																# It is not enabled by default
