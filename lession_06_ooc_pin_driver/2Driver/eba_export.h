@@ -49,9 +49,9 @@ void run(void);
 #endif
 
 #define INIT_EXPORT(_func, _level)                                             \
-  USED const struct export init_##_func SECTION(".eba_export") = {                 \
+  USED const struct export init_##_func SECTION("eba_export_section") = {     \
       .name = #_func,                                                          \
-      .func = (void *)_func,                                                   \
+      .func = (void *)&_func,                                                  \
       .level = _level,                                                         \
       .exit = false,                                                           \
       .magic_head = EXPORT_ID_INIT,                                            \
@@ -59,7 +59,7 @@ void run(void);
   }
 
 #define EXIT_EXPORT(_func, _level)                                             \
-  USED const struct export exit_##_func SECTION("eba_export") = {                  \
+  USED const struct export exit_##_func SECTION("eba_export_section") = {      \
       .name = #_func,                                                          \
       .func = (void *)&_func,                                                  \
       .level = _level,                                                         \
@@ -72,7 +72,7 @@ void run(void);
   static struct export_poll_data poll_##_func##_data = {                       \
       .timeout_ms = 0,                                                         \
   };                                                                           \
-  USED const struct export poll_##_func SECTION("eba_expoll") = {                  \
+  USED const struct export poll_##_func SECTION("eba_expoll_section") = {      \
       .name = "poll",                                                          \
       .func = &_func,                                                          \
       .data = (void *)&poll_##_func##_data,                                    \

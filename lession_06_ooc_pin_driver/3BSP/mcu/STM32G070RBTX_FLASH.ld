@@ -120,18 +120,18 @@ SECTIONS
   } >FLASH
 
   /* custom section for initial functions */
-  .eba_export :
+  .eba_export_section :
   {
     . = ALIGN(4);
-    KEEP(*(export))
+    KEEP(*(eba_export_section))
     . = ALIGN(4);
   } >FLASH
 
   /* custom section for poll functions */
-  .eba_expoll :
+  .eba_expoll_section :
   {
     . = ALIGN(4);
-    KEEP(*(expoll))
+    KEEP(*(eba_expoll_section))
     . = ALIGN(4);
 
   } >FLASH
