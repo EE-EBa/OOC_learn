@@ -1,6 +1,5 @@
 #include "bsp.h"
 #include "eio_pin.h"
-#include "led.h"
 #include "stdio.h"
 #include <stdbool.h>
 #include "eba_export.h"

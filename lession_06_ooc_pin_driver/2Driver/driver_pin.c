@@ -50,7 +50,7 @@ static struct eio_pin_data eio_pin_driver_data[] = {
     },
 };
 /* private functions */
- void eio_pin_driver_init(void) {
+static void eio_pin_driver_init(void) {
   for (uint32_t i = 0;
        i < sizeof(eio_pin_driver_data) / sizeof(struct eio_pin_data); i++) {
     /* Enable the clock */
