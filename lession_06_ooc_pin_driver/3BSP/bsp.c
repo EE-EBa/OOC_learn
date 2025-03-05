@@ -16,7 +16,6 @@ static void _system_clock_config(void);
 void bsp_init() {
   HAL_Init();
   _system_clock_config();
-  eio_pin_driver_init();
 }
 
 /* System clock configuration */
